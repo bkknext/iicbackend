@@ -13,9 +13,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb://localhost:27017/quizApp', {
+mongoose.connect("mongodb+srv://IICDB:IICDB%40123@recruitment.pvbqzqj.mongodb.net/?retryWrites=true&w=majority&appName=RECRUITMENT", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  socketTimeoutMS: 35000 
 })
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.log('MongoDB connection error:', err));
