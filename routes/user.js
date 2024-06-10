@@ -16,8 +16,8 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  
+router.post('/', (req, res) => {
+  console.log("i m perfect");
     res.send("hello I m perfect");
 
 });
