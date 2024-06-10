@@ -16,6 +16,12 @@ router.post('/register', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  
+    res.send("hello I m perfect");
+
+});
+
 router.post('/submit', async (req, res) => {
   try {
     const { name, usn, Score } = req.body;
