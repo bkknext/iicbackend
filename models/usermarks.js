@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     Score: 
     { type: Number, 
         required: true
-    },
+    }
 });
 
 module.exports = mongoose.model("Usermarks", userSchema);

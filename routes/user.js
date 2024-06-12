@@ -6,8 +6,8 @@ const Usermarks = require('../models/usermarks');
 // Register 
 router.post('/register', async (req, res) => {
   try {
-    const { name, usn, phone, email, password, year, branch } = req.body;
-    const newUser = new User({ name, usn, phone, email, password, year, branch });
+    const { name, usn, phone, email, year, branch, cgpa } = req.body;
+    const newUser = new User({ name, usn, phone, email, year, branch, cgpa });
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {

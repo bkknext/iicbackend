@@ -25,13 +25,10 @@ const userSchema = new mongoose.Schema({
     { type: String, 
       required: true 
     },
-    answers: 
-    [{ type: String }],
-
-    totalScore: 
-    { type: Number, 
-      default: 0 
-    },
+    cgpa: 
+    { type: String, 
+      required: true 
+    }
 });
 
 module.exports = mongoose.model("User", userSchema);
