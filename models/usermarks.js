@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     },
     usn: 
     { type: String, 
-      required: true, 
+      required: true
     },
     
     Score: 
