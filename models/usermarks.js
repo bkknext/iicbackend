@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
     usn: 
     { type: String, 
       required: true, 
-      unique: true 
     },
     
     Score: 
