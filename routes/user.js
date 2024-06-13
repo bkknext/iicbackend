@@ -38,21 +38,14 @@ router.post('/submit', async (req, res) => {
 router.get('/students', async (req, res) => {
   try {
     // Use aggregation to join User and Usermarks collections based on usn
-    const combinedData = await Students.aggregate([
-      {
-        $lookup: {
-          from: "Studentmarks", // The name of the Usermarks collection
-          localField: "usn", // Field from the User collection
-          foreignField: "usn", // Field from the Usermarks collection
-          as: "studentmarkDetails" // Name of the new field with matched documents
-        }
-      },
-      {
-        $unwind: "$studentmarkDetails" // Deconstruct the array to include only matched documents
-      }
-    ]);
+    const students = await Students.find();
+    const studentMarks = await Studentmarks.find();
 
-    res.json(combinedData);
+    // Send both collections' data in the response as separate properties
+    res.json({
+      students: Students,
+      studentmarks: Studentmarks
+    });
   } 
   
   catch (error) {
