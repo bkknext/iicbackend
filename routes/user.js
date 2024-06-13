@@ -43,8 +43,8 @@ router.get('/students', async (req, res) => {
 
     // Send both collections' data in the response as separate properties
     res.json({
-      students: Students,
-      studentmarks: Studentmarks
+      students: students,
+      studentMarks: studentMarks
     });
   } 
   
