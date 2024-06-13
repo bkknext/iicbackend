@@ -4,6 +4,13 @@ const Students = require('../models/students');
 const Studentmarks = require('../models/studentmarks');
 
 // Register 
+
+router.post('/', (req, res) => {
+  console.log("i m perfect");
+    res.send("hello I m perfect");
+
+});
+
 router.post('/register', async (req, res) => {
   try {
     const { name, usn, phone, email, year, branch, cgpa } = req.body;
@@ -14,12 +21,6 @@ router.post('/register', async (req, res) => {
     res.status(500).json({ error: error.message },"heyyyy");
     
   }
-});
-
-router.post('/', (req, res) => {
-  console.log("i m perfect");
-    res.send("hello I m perfect");
-
 });
 
 router.post('/submit', async (req, res) => {
@@ -34,14 +35,13 @@ router.post('/submit', async (req, res) => {
   }
 });
 
-
 router.get('/students', async (req, res) => {
   try {
     // Use aggregation to join User and Usermarks collections based on usn
-    const combinedData = await Student.aggregate([
+    const combinedData = await Students.aggregate([
       {
         $lookup: {
-          from: "smarks", // The name of the Usermarks collection
+          from: "Studentmarks", // The name of the Usermarks collection
           localField: "usn", // Field from the User collection
           foreignField: "usn", // Field from the Usermarks collection
           as: "studentmarkDetails" // Name of the new field with matched documents
