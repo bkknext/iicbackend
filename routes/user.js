@@ -8,9 +8,7 @@ router.post('/register', async (req, res) => {
   try {
     const { name, usn, phone, email, year, branch, cgpa } = req.body;
     const newStudent = new Students({ name, usn, phone, email, year, branch, cgpa });
-    const savedUser = await newStudent.save();
-    //await newStudent.save();
-    console.log('User added successfully:', savedUser);
+    await newStudent.save();    
     res.status(201).json(newStudent);
   } catch (error) {
     res.status(500).json({ error: error.message },"heyyyy");
@@ -28,8 +26,7 @@ router.post('/submit', async (req, res) => {
   try {
     const { name, usn, Score } = req.body;
     const newStudentmrks = new Studentmarks({ name, usn, Score });
-    const savedmarks = await newStudentmrks.save();
-    console.log('User added successfully:', savedmarks);
+    await newStudentmrks.save();
     res.status(201).json(newStudentmrks);
   } catch (error) {
     res.status(500).json({ error: error.message },"heyyyy");
